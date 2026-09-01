@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Effect Size Calculator · Pedagogical Statistics Toolkit</title>
+<meta name="description" content="Cohen's d, Hedges' g, rank-biserial r, Cohen's h, Cramér's V and the odds ratio with confidence intervals.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232e5c8a'/%3E%3Cg stroke='%23fff' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M7 24h18'/%3E%3Cpath d='M10 24v-7'/%3E%3Cpath d='M16 24V9'/%3E%3Cpath d='M22 24v-11'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 20V11"/><path d="M11 20V5"/><path d="M16 20v-6"/><path d="M21 20V8"/></svg></span>
+      <span class="brand-text">
+        <span class="brand-name">Pedagogical Statistics</span>
+        <span class="brand-sub">Toolkit</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mainnav" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="mainnav">
+      <a href="../index.html" aria-current="page">Method finder</a>
+      <a href="../guides/study-design.html">Study design</a>
+      <a href="../guides/sample-size.html">Sample size</a>
+      <a href="../guides/small-samples.html">Small samples</a>
+      <a href="../guides/checklist.html">Checklist</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch theme"></button>
+  </div>
+</header>
+<main id="main">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Method finder</a><span class="sep">›</span><span>Effect Size Calculator</span></nav>
+    <span class="eyebrow">Effect measure · Any design</span>
+    <h1>Effect Size Calculator</h1>
+    <p class="lede">Every significance test must be reported with an effect size. This calculator produces the right one for your design, with a 95% confidence interval and a plain-language reading.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="method-layout" style="margin-top:30px">
+    <div>
+      <section class="card">
+        <div class="card-head"><h2 style="margin:0">What this test does</h2></div>
+        
+        <p>A p-value answers only whether an effect is distinguishable from chance at your
+        sample size. It says nothing about how large the effect is. With 200 students a gain
+        of one point becomes significant; with six students a doubling of scores may not.
+        The effect size fixes this: it expresses the size of the difference on a standard
+        scale that does not depend on how many students you had.</p>
+        <p>Which measure to use follows from the design. Two groups with numeric scores call
+        for Cohen's d — or Hedges' g, its small-sample correction, whenever a group has
+        fewer than twenty students, because d is biased upwards there. Pre/post data on one
+        group call for the paired form. Rank tests report r = |Z| ÷ √N. Proportions call for
+        Cohen's h or the odds ratio, and contingency tables for Cramér's V.</p>
+        <p>Always report the confidence interval alongside the point estimate. With a small
+        sample it will be wide — an interval running from 0.2 to 2.0 says the effect could
+        be anywhere from barely noticeable to enormous, and a reader deserves to know that.
+        An interval that includes zero is the same information a non-significant p-value
+        carries, expressed more usefully.</p>
+    
+      </section>
+
+      <section class="card" style="margin-top:22px">
+        <div class="card-head">
+          <h2 style="margin:0">Your data</h2>
+          <span class="small muted">Computed in your browser — nothing is uploaded</span>
+        </div>
+        
+        <div class="field">
+          <label for="mode">What do you have?</label>
+          <select id="mode">
+            <option value="groups" selected>Raw scores for two independent groups</option>
+            <option value="summary">Means, SDs and sizes for two groups</option>
+            <option value="paired">Raw pre-test and post-test scores for one group</option>
+            <option value="proportions">Two proportions (counts of students)</option>
+            <option value="chi">A chi-square value from a contingency table</option>
+            <option value="z">A Z statistic from a rank test</option>
+          </select>
+        </div>
+        <div id="modeFields"></div>
+        
+        <div class="data-toolbar">
+          <button class="btn btn-primary" type="button" id="calcBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            Compute the effect size
+          </button>
+          <button class="btn btn-secondary" type="button" id="exampleBtn">Load example data</button>
+          <button class="btn btn-ghost" type="button" id="clearBtn">Clear</button>
+        </div>
+
+      </section>
+
+      <section class="results" id="results" hidden>
+        <div class="card">
+          <div class="card-head">
+            <h2>Results</h2>
+            <div class="btn-row">
+              <button class="btn btn-ghost btn-sm" type="button" id="copyBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                Copy
+              </button>
+              <button class="btn btn-ghost btn-sm" type="button" id="saveBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 20h16"/></svg>
+                Save .txt
+              </button>
+            </div>
+          </div>
+          <div id="verdict"></div>
+          <div id="statGrid"></div>
+          <div class="warnings" id="warnBox"></div>
+          <div id="chartBox"></div>
+          <div id="detailBox"></div>
+          <div class="interpretation" id="interpBox"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        
+        <h2>Reporting convention</h2>
+        <p>Give the effect size to two decimal places with its confidence interval, next to
+        the test result: <em>"d = 0.68, 95% CI [0.11, 1.25]"</em>. State which measure you
+        used and, when the sample is small, that you used Hedges' g rather than Cohen's d.</p>
+        <h2>Where the benchmarks come from</h2>
+        <p>Cohen's small / medium / large labels were proposed for behavioural research in
+        general, not for your subject specifically. If published studies of comparable
+        teaching interventions routinely report d ≈ 0.4, then 0.4 is the benchmark that
+        matters for your work, whatever the generic label says. Cite the comparison when
+        you can.</p>
+    
+      </section>
+
+      <section class="section"><h2>Related methods</h2><div class="grid-3" style="margin-top:18px">
+      <a class="method-card" href="wilcoxon.html">
+        <h3>Wilcoxon Signed-Rank Test (T)</h3>
+        <p>The default test for a pre-test / post-test design without a control group. It uses both the direction and the size of each student's change, and assu…</p>
+      </a>
+      <a class="method-card" href="independent-t.html">
+        <h3>Independent-Samples t-Test</h3>
+        <p>Compares the mean scores of an experimental and a control group. Reports both the Student and the Welch version, tests the equal-variance assumption, …</p>
+      </a>
+      <a class="method-card" href="chi-square.html">
+        <h3>Pearson's Chi-Square Test</h3>
+        <p>Compares how students are distributed across categories or performance levels in two or more groups. Works on counts — never on percentages — and fall…</p>
+      </a>
+</div></section>
+    </div>
+
+      <aside>
+        <div class="spec-box">
+          <h3>At a glance</h3>
+          <dl class="spec-list">
+          <div><dt>Measurement scale</dt><dd>Any — pick the mode that matches your data</dd></div>
+          <div><dt>Study design</dt><dd>Any</dd></div>
+          <div><dt>Minimum n</dt><dd>3</dd></div>
+          <div><dt>Cohen's d / Hedges' g</dt><dd>0.2 small · 0.5 medium · 0.8 large</dd></div>
+          <div><dt>r and Cramér's V</dt><dd>0.1 small · 0.3 medium · 0.5 large</dd></div>
+          <div><dt>Cohen's h</dt><dd>0.2 small · 0.5 medium · 0.8 large</dd></div>
+          <div><dt>Odds ratio</dt><dd>1.5 small · 2.5 medium · 4.0 large</dd></div>
+          <div><dt>Source</dt><dd>Cohen (1988); Hedges &amp; Olkin (1985)</dd></div>
+          </dl>
+        </div>
+      </aside>
+
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>About this toolkit</h4>
+        <p>A set of calculators for the statistical methods most often needed when a
+        master's student has to demonstrate that a newly designed course actually works.
+        Every calculation runs in your browser — no data is uploaded anywhere.</p>
+        <p>The methodological base is B. E. Starichenko, <em>Processing and Presenting
+        Data from Pedagogical Research with a Computer</em> (Ural State Pedagogical
+        University, 2004), extended with effect sizes and exact small-sample tests.</p>
+      </div>
+      <div>
+        <h4>Methods</h4>
+        <ul>
+        <li><a href="../methods/descriptives.html">Descriptive statistics</a></li>
+        <li><a href="../methods/sign-test.html">Sign test</a></li>
+        <li><a href="../methods/wilcoxon.html">Wilcoxon signed-rank</a></li>
+        <li><a href="../methods/paired-t.html">Paired t-test</a></li>
+        <li><a href="../methods/mann-whitney.html">Mann–Whitney U</a></li>
+        <li><a href="../methods/independent-t.html">Independent t-test</a></li>
+        <li><a href="../methods/fisher-phi.html">Fisher's φ*</a></li>
+        <li><a href="../methods/chi-square.html">Chi-square</a></li>
+        <li><a href="../methods/hake-gain.html">Normalized gain</a></li>
+        <li><a href="../methods/effect-size.html">Effect sizes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Guides</h4>
+        <ul>
+        <li><a href="../guides/study-design.html">Study design &amp; measurements</a></li>
+        <li><a href="../guides/sample-size.html">Sample size &amp; power</a></li>
+        <li><a href="../guides/small-samples.html">Working with 5–7 students</a></li>
+        <li><a href="../guides/checklist.html">Pre-launch checklist</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Pedagogical Statistics Toolkit · open source, MIT licensed</span>
+      <span>Results are a computational aid, not a substitute for methodological judgement.</span>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/stats.js"></script>
+<script src="../assets/js/ui.js"></script>
+<script src="../assets/js/pages/effect-size.js"></script>
+</body>
+</html>

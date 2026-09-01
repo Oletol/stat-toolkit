@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pre-launch checklist · Pedagogical Statistics Toolkit</title>
+<meta name="description" content="Twenty-eight methodological and organisational requirements to settle before launching a course whose effectiveness you intend to evaluate.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232e5c8a'/%3E%3Cg stroke='%23fff' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M7 24h18'/%3E%3Cpath d='M10 24v-7'/%3E%3Cpath d='M16 24V9'/%3E%3Cpath d='M22 24v-11'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 20V11"/><path d="M11 20V5"/><path d="M16 20v-6"/><path d="M21 20V8"/></svg></span>
+      <span class="brand-text">
+        <span class="brand-name">Pedagogical Statistics</span>
+        <span class="brand-sub">Toolkit</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mainnav" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="mainnav">
+      <a href="../index.html">Method finder</a>
+      <a href="../guides/study-design.html">Study design</a>
+      <a href="../guides/sample-size.html">Sample size</a>
+      <a href="../guides/small-samples.html">Small samples</a>
+      <a href="../guides/checklist.html" aria-current="page">Checklist</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch theme"></button>
+  </div>
+</header>
+<main id="main">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Method finder</a><span class="sep">›</span><span>Pre-launch checklist</span></nav>
+    <span class="eyebrow">Guide · Interactive</span>
+    <h1>Pre-launch checklist</h1>
+    <p class="lede">An item left open at the planning stage costs a week of work. The same
+    item discovered after the data are in usually means repeating the study.</p>
+  </div>
+</div>
+
+<div class="wrap wrap-narrow">
+  <section class="card" style="margin-top:26px">
+    <div class="card-head">
+      <h2 style="margin:0">Progress</h2>
+      <div class="btn-row">
+        <button class="btn btn-ghost btn-sm" type="button" id="resetCk">Reset</button>
+        <button class="btn btn-ghost btn-sm" type="button" id="printCk">Print</button>
+      </div>
+    </div>
+    <div class="progress-bar"><i id="ckBar"></i></div>
+    <p class="small muted" id="ckCount" style="margin:6px 0 0">0 of 28 items complete</p>
+    <p class="small muted" style="margin-top:10px">Your ticks are stored in this browser
+    only. Nothing is uploaded, and clearing your browser data clears them.</p>
+  </section>
+
+  <section class="section">
+    <ul class="checklist" id="checklist">
+        <li class="ck-section-row" data-section="1">Design intent</li>
+        <li data-id="ck1"><input type="checkbox" id="ck1" aria-label="Mark item 1 as done"><div class="ck-body"><label class="ck-title" for="ck1">A hypothesis is stated in testable form: what should change, and by how much</label><div class="ck-why">An untestable hypothesis ("the methodology improves the quality of learning") cannot be confirmed by any criterion.</div></div></li>
+        <li data-id="ck2"><input type="checkbox" id="ck2" aria-label="Mark item 2 as done"><div class="ck-body"><label class="ck-title" for="ck2">One to three effectiveness indicators are defined, each with a stated way of measuring it</label><div class="ck-why">More than three indicators require a correction for multiple comparisons and blur the conclusion.</div></div></li>
+        <li data-id="ck3"><input type="checkbox" id="ck3" aria-label="Mark item 3 as done"><div class="ck-body"><label class="ck-title" for="ck3">The measurement scale is recorded for each indicator (nominal / ordinal / interval)</label><div class="ck-why">The scale determines which criteria are admissible; an error here invalidates the whole analysis.</div></div></li>
+        <li data-id="ck4"><input type="checkbox" id="ck4" aria-label="Mark item 4 as done"><div class="ck-body"><label class="ck-title" for="ck4">For dichotomous indicators, the threshold for "effect present" is fixed in advance</label><div class="ck-why">Choosing the threshold after seeing the data is fitting the result.</div></div></li>
+        <li class="ck-section-row" data-section="1">Design</li>
+        <li data-id="ck5"><input type="checkbox" id="ck5" aria-label="Mark item 5 as done"><div class="ck-body"><label class="ck-title" for="ck5">A decision on the control group has been taken; if there is none, the compensating scheme is justified</label><div class="ck-why">Without a control group the effect of the methodology cannot be separated from the effect of time and other factors.</div></div></li>
+        <li data-id="ck6"><input type="checkbox" id="ck6" aria-label="Mark item 6 as done"><div class="ck-body"><label class="ck-title" for="ck6">If there is a control group, the method of forming the groups is defined (randomisation, matching, intact groups)</label><div class="ck-why">How the groups were formed determines how strong a conclusion is admissible.</div></div></li>
+        <li data-id="ck7"><input type="checkbox" id="ck7" aria-label="Mark item 7 as done"><div class="ck-body"><label class="ck-title" for="ck7">A pre-test is planned to check the initial equivalence of the groups</label><div class="ck-why">Without a pre-test, differences at the end may reflect differences that existed at the start.</div></div></li>
+        <li data-id="ck8"><input type="checkbox" id="ck8" aria-label="Mark item 8 as done"><div class="ck-body"><label class="ck-title" for="ck8">The number of measurements is fixed: minimum 2 (pre and post), 3–4 recommended</label><div class="ck-why">See the study design guide.</div></div></li>
+        <li data-id="ck9"><input type="checkbox" id="ck9" aria-label="Mark item 9 as done"><div class="ck-body"><label class="ck-title" for="ck9">The possibility of a delayed measurement 1–3 months later has been considered</label><div class="ck-why">Retention of the result is a strong argument at the defence.</div></div></li>
+        <li data-id="ck10"><input type="checkbox" id="ck10" aria-label="Mark item 10 as done"><div class="ck-body"><label class="ck-title" for="ck10">The course's assessments are agreed as measurement points and are comparable in content</label><div class="ck-why">Otherwise the trend will reflect differences in task difficulty rather than growth in attainment.</div></div></li>
+        <li class="ck-section-row" data-section="1">Sample</li>
+        <li data-id="ck11"><input type="checkbox" id="ck11" aria-label="Mark item 11 as done"><div class="ck-body"><label class="ck-title" for="ck11">The required sample size for the expected effect has been calculated</label><div class="ck-why">See the sample size guide.</div></div></li>
+        <li data-id="ck12"><input type="checkbox" id="ck12" aria-label="Mark item 12 as done"><div class="ck-body"><label class="ck-title" for="ck12">A margin for attrition is built in (with 30% expected attrition, recruit 1.4× the calculated number)</label><div class="ck-why">Attrition on online courses runs at 30–60%.</div></div></li>
+        <li data-id="ck13"><input type="checkbox" id="ck13" aria-label="Mark item 13 as done"><div class="ck-body"><label class="ck-title" for="ck13">A decision has been taken on how to count non-completers: all enrolled, or only those who finished</label><div class="ck-why">With attrition above 20% this choice changes the result materially and must be agreed in advance.</div></div></li>
+        <li data-id="ck14"><input type="checkbox" id="ck14" aria-label="Mark item 14 as done"><div class="ck-body"><label class="ck-title" for="ck14">If the group is smaller than eight, compensating techniques are built into the design</label><div class="ck-why">See the guide on working with 5–7 students.</div></div></li>
+        <li class="ck-section-row" data-section="1">Instruments</li>
+        <li data-id="ck15"><input type="checkbox" id="ck15" aria-label="Mark item 15 as done"><div class="ck-body"><label class="ck-title" for="ck15">The pre-test and post-test are equivalent in difficulty, structure and number of items</label><div class="ck-why">Non-equivalent tests make the comparison meaningless.</div></div></li>
+        <li data-id="ck16"><input type="checkbox" id="ck16" aria-label="Mark item 16 as done"><div class="ck-body"><label class="ck-title" for="ck16">The test or questionnaire has been piloted and its reliability computed (Cronbach's α ≥ 0.7)</label><div class="ck-why">An unreliable instrument will not detect a real effect.</div></div></li>
+        <li data-id="ck17"><input type="checkbox" id="ck17" aria-label="Mark item 17 as done"><div class="ck-body"><label class="ck-title" for="ck17">If experts do the marking, criterion rubrics exist and inter-rater agreement has been checked</label><div class="ck-why">Disagreement between markers introduces noise larger than the effect under study.</div></div></li>
+        <li data-id="ck18"><input type="checkbox" id="ck18" aria-label="Mark item 18 as done"><div class="ck-body"><label class="ck-title" for="ck18">A benchmark or target value for the indicator is defined and its source justified</label><div class="ck-why">Required for designs with a single final measurement.</div></div></li>
+        <li class="ck-section-row" data-section="1">Data collection</li>
+        <li data-id="ck19"><input type="checkbox" id="ck19" aria-label="Mark item 19 as done"><div class="ck-body"><label class="ck-title" for="ck19">Data are recorded per student, under a code rather than a name</label><div class="ck-why">Without that link, tests for related samples cannot be used.</div></div></li>
+        <li data-id="ck20"><input type="checkbox" id="ck20" aria-label="Mark item 20 as done"><div class="ck-body"><label class="ck-title" for="ck20">A data table is prepared: one row per student, one column per indicator and measurement</label><div class="ck-why">Reformatting data after the fact is a reliable source of errors.</div></div></li>
+        <li data-id="ck21"><input type="checkbox" id="ck21" aria-label="Mark item 21 as done"><div class="ck-body"><label class="ck-title" for="ck21">Raw scores are recorded, not only percentages and levels</label><div class="ck-why">Any derived indicator can be computed from raw scores; the reverse is not true.</div></div></li>
+        <li data-id="ck22"><input type="checkbox" id="ck22" aria-label="Mark item 22 as done"><div class="ck-body"><label class="ck-title" for="ck22">Background data are collected: prior attainment, year, programme, attendance</label><div class="ck-why">Needed as covariates and to describe the sample.</div></div></li>
+        <li class="ck-section-row" data-section="1">Analysis</li>
+        <li data-id="ck23"><input type="checkbox" id="ck23" aria-label="Mark item 23 as done"><div class="ck-body"><label class="ck-title" for="ck23">The statistical method is chosen and recorded BEFORE data collection</label><div class="ck-why">Selecting the criterion to fit the result is detectable at the defence.</div></div></li>
+        <li data-id="ck24"><input type="checkbox" id="ck24" aria-label="Mark item 24 as done"><div class="ck-body"><label class="ck-title" for="ck24">The significance level and the direction of the hypothesis (one- or two-sided) are fixed</label><div class="ck-why">A one-sided hypothesis gives more power but must be declared in advance.</div></div></li>
+        <li data-id="ck25"><input type="checkbox" id="ck25" aria-label="Mark item 25 as done"><div class="ck-body"><label class="ck-title" for="ck25">With several indicators, a correction for multiple comparisons is planned</label><div class="ck-why">Five criteria at p ≤ 0.05 give a 23% chance of a false positive somewhere.</div></div></li>
+        <li data-id="ck26"><input type="checkbox" id="ck26" aria-label="Mark item 26 as done"><div class="ck-body"><label class="ck-title" for="ck26">Effect sizes with confidence intervals are planned</label><div class="ck-why">A mandatory element of a modern report, and critical at small sample sizes.</div></div></li>
+        <li data-id="ck27"><input type="checkbox" id="ck27" aria-label="Mark item 27 as done"><div class="ck-body"><label class="ck-title" for="ck27">The computational tool is chosen and learned (this site, Excel, Jamovi or JASP)</label><div class="ck-why">Learning the software while processing the data is a source of errors and delay.</div></div></li>
+        <li class="ck-section-row" data-section="1">Ethics</li>
+        <li data-id="ck28"><input type="checkbox" id="ck28" aria-label="Mark item 28 as done"><div class="ck-body"><label class="ck-title" for="ck28">Informed consent has been obtained and the data are anonymised</label><div class="ck-why">A requirement of research ethics, and mandatory for publication.</div></div></li>
+    </ul>
+  </section>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>About this toolkit</h4>
+        <p>A set of calculators for the statistical methods most often needed when a
+        master's student has to demonstrate that a newly designed course actually works.
+        Every calculation runs in your browser — no data is uploaded anywhere.</p>
+        <p>The methodological base is B. E. Starichenko, <em>Processing and Presenting
+        Data from Pedagogical Research with a Computer</em> (Ural State Pedagogical
+        University, 2004), extended with effect sizes and exact small-sample tests.</p>
+      </div>
+      <div>
+        <h4>Methods</h4>
+        <ul>
+        <li><a href="../methods/descriptives.html">Descriptive statistics</a></li>
+        <li><a href="../methods/sign-test.html">Sign test</a></li>
+        <li><a href="../methods/wilcoxon.html">Wilcoxon signed-rank</a></li>
+        <li><a href="../methods/paired-t.html">Paired t-test</a></li>
+        <li><a href="../methods/mann-whitney.html">Mann–Whitney U</a></li>
+        <li><a href="../methods/independent-t.html">Independent t-test</a></li>
+        <li><a href="../methods/fisher-phi.html">Fisher's φ*</a></li>
+        <li><a href="../methods/chi-square.html">Chi-square</a></li>
+        <li><a href="../methods/hake-gain.html">Normalized gain</a></li>
+        <li><a href="../methods/effect-size.html">Effect sizes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Guides</h4>
+        <ul>
+        <li><a href="../guides/study-design.html">Study design &amp; measurements</a></li>
+        <li><a href="../guides/sample-size.html">Sample size &amp; power</a></li>
+        <li><a href="../guides/small-samples.html">Working with 5–7 students</a></li>
+        <li><a href="../guides/checklist.html">Pre-launch checklist</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Pedagogical Statistics Toolkit · open source, MIT licensed</span>
+      <span>Results are a computational aid, not a substitute for methodological judgement.</span>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/stats.js"></script>
+<script src="../assets/js/ui.js"></script>
+<script src="../assets/js/pages/checklist.js"></script>
+</body>
+</html>

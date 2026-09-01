@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fisher's Angular Transformation (φ*) · Pedagogical Statistics Toolkit</title>
+<meta name="description" content="Fisher's phi criterion (angular transformation) for comparing two proportions or percentages in pedagogical research.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232e5c8a'/%3E%3Cg stroke='%23fff' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M7 24h18'/%3E%3Cpath d='M10 24v-7'/%3E%3Cpath d='M16 24V9'/%3E%3Cpath d='M22 24v-11'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 20V11"/><path d="M11 20V5"/><path d="M16 20v-6"/><path d="M21 20V8"/></svg></span>
+      <span class="brand-text">
+        <span class="brand-name">Pedagogical Statistics</span>
+        <span class="brand-sub">Toolkit</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mainnav" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="mainnav">
+      <a href="../index.html" aria-current="page">Method finder</a>
+      <a href="../guides/study-design.html">Study design</a>
+      <a href="../guides/sample-size.html">Sample size</a>
+      <a href="../guides/small-samples.html">Small samples</a>
+      <a href="../guides/checklist.html">Checklist</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch theme"></button>
+  </div>
+</header>
+<main id="main">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Method finder</a><span class="sep">›</span><span>Fisher's Angular Transformation (φ*)</span></nav>
+    <span class="eyebrow">Non-parametric · Proportions</span>
+    <h1>Fisher's Angular Transformation (φ*)</h1>
+    <p class="lede">The correct way to compare two percentages. Percentages cannot be fed into a statistical test directly — this criterion converts each proportion into an angle first, and has no upper limit on sample size.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="method-layout" style="margin-top:30px">
+    <div>
+      <section class="card">
+        <div class="card-head"><h2 style="margin:0">What this test does</h2></div>
+        
+        <p>Reporting that 40% of the control group and 70% of the experimental group passed
+        is descriptive, not evidential. To test whether that gap is real you need a
+        criterion built for proportions, and Fisher's angular transformation is the one the
+        textbook recommends. Each proportion <i>P</i> is turned into an angle
+        φ = 2·arcsin(√P), which stabilises the variance, and the two angles are then
+        compared.</p>
+        <p>The empirical value is φ* = |φ₁ − φ₂| · √(n₁n₂ ⁄ (n₁+n₂)). It is referred to the
+        critical values 1.64 for p ≤ 0.05 and 2.31 for p ≤ 0.01 (Starichenko, Table 8).
+        The criterion has no upper bound on sample size and unusually permissive lower
+        bounds: comparisons are admissible from n₁ = 2 provided n₂ ≥ 30, from n₁ = 3 with
+        n₂ ≥ 7, from n₁ = 4 with n₂ ≥ 5, and freely once both samples reach 5. This page
+        checks those bounds for you and refuses to pretend a comparison is valid when it
+        is not.</p>
+        <p>The "effect" you count can be anything you can define in advance: passing a
+        threshold, completing a task, reaching a competence level, making a particular type
+        of error. What matters is that the threshold is fixed <em>before</em> you look at
+        the data. Choosing the cut-off that maximises the difference after the fact is
+        exactly the manoeuvre that invalidates the result.</p>
+    
+      </section>
+
+      <section class="card" style="margin-top:22px">
+        <div class="card-head">
+          <h2 style="margin:0">Your data</h2>
+          <span class="small muted">Computed in your browser — nothing is uploaded</span>
+        </div>
+        
+        <div class="data-grid">
+          <div class="field">
+            <label for="lab1">Group 1 name</label>
+            <input type="text" id="lab1" value="Experimental group" spellcheck="false">
+            <div class="field-row" style="margin-top:12px">
+              <div class="field">
+                <label for="k1">Students showing the effect</label>
+                <input type="number" id="k1" min="0" step="1" value="">
+              </div>
+              <div class="field">
+                <label for="n1">Group size</label>
+                <input type="number" id="n1" min="1" step="1" value="">
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="lab2">Group 2 name</label>
+            <input type="text" id="lab2" value="Control group" spellcheck="false">
+            <div class="field-row" style="margin-top:12px">
+              <div class="field">
+                <label for="k2">Students showing the effect</label>
+                <input type="number" id="k2" min="0" step="1" value="">
+              </div>
+              <div class="field">
+                <label for="n2">Group size</label>
+                <input type="number" id="n2" min="1" step="1" value="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="effectName">How the effect is defined</label>
+          <input type="text" id="effectName" value="passed the final test" spellcheck="false">
+          <div class="hint">Used in the written interpretation. Fix this definition before collecting data.</div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="alpha">Significance level α</label>
+            <select id="alpha">
+              <option value="0.05" selected>0.05 — the usual choice</option>
+              <option value="0.01">0.01 — stricter</option>
+              <option value="0.1">0.10 — exploratory work only</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="tails">Hypothesis</label>
+            <select id="tails">
+              <option value="one" selected>One-sided — group 1 should be higher</option>
+              <option value="two">Two-sided — either group may be higher</option>
+            </select>
+          </div></div>
+        <div class="data-toolbar">
+          <button class="btn btn-primary" type="button" id="calcBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            Compare the proportions
+          </button>
+          <button class="btn btn-secondary" type="button" id="exampleBtn">Load example data</button>
+          <button class="btn btn-ghost" type="button" id="clearBtn">Clear</button>
+        </div>
+
+      </section>
+
+      <section class="results" id="results" hidden>
+        <div class="card">
+          <div class="card-head">
+            <h2>Results</h2>
+            <div class="btn-row">
+              <button class="btn btn-ghost btn-sm" type="button" id="copyBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                Copy
+              </button>
+              <button class="btn btn-ghost btn-sm" type="button" id="saveBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 20h16"/></svg>
+                Save .txt
+              </button>
+            </div>
+          </div>
+          <div id="verdict"></div>
+          <div id="statGrid"></div>
+          <div class="warnings" id="warnBox"></div>
+          <div id="chartBox"></div>
+          <div id="detailBox"></div>
+          <div class="interpretation" id="interpBox"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        
+        <h2>Why not just use percentages?</h2>
+        <p>Because a percentage discards the sample size, and the sample size is what
+        decides whether a gap is meaningful. Ten out of twenty-five (40%) versus twelve out
+        of twenty (60%) looks like a difference of half again — yet φ* = 1.34, below the
+        critical 1.64, so the gap is not statistically reliable. The same two percentages
+        based on 250 and 200 students would be decisive. Never run a test on percentages
+        themselves; always work from the underlying counts.</p>
+        <h2>Related samples</h2>
+        <p>The criterion also compares two proportions measured on the same students before
+        and after the course. Enter the pre-course count as group 1 and the post-course
+        count as group 2, with the same group size in both.</p>
+    
+      </section>
+
+      <section class="section"><h2>Related methods</h2><div class="grid-3" style="margin-top:18px">
+      <a class="method-card" href="chi-square.html">
+        <h3>Pearson's Chi-Square Test</h3>
+        <p>Compares how students are distributed across categories or performance levels in two or more groups. Works on counts — never on percentages — and fall…</p>
+      </a>
+      <a class="method-card" href="effect-size.html">
+        <h3>Effect Size Calculator</h3>
+        <p>Every significance test must be reported with an effect size. This calculator produces the right one for your design, with a 95% confidence interval a…</p>
+      </a>
+      <a class="method-card" href="mann-whitney.html">
+        <h3>Mann–Whitney U Test</h3>
+        <p>Compares an experimental group against a control group when the data are ordinal or the samples are small. No normality assumption, and the two groups…</p>
+      </a>
+</div></section>
+    </div>
+
+      <aside>
+        <div class="spec-box">
+          <h3>At a glance</h3>
+          <dl class="spec-list">
+          <div><dt>Measurement scale</dt><dd>Nominal — or any scale reduced to "effect present / absent"</dd></div>
+          <div><dt>Study design</dt><dd>Two independent or two related samples</dd></div>
+          <div><dt>Measurements needed</dt><dd>1</dd></div>
+          <div><dt>Minimum n</dt><dd>n₁ = 2 with n₂ ≥ 30; 3 with ≥ 7; 4 with ≥ 5; free from 5 and 5</dd></div>
+          <div><dt>Recommended n</dt><dd>≥ 20 per group</dd></div>
+          <div><dt>Upper limit</dt><dd>None — the criterion has no upper bound</dd></div>
+          <div><dt>Test statistic</dt><dd>φ* compared with 1.64 (p ≤ 0.05) and 2.31 (p ≤ 0.01)</dd></div>
+          <div><dt>Source</dt><dd>Starichenko §2.4.2 (p. 74), Table 8 (p. 206)</dd></div>
+          </dl>
+        </div>
+      </aside>
+
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>About this toolkit</h4>
+        <p>A set of calculators for the statistical methods most often needed when a
+        master's student has to demonstrate that a newly designed course actually works.
+        Every calculation runs in your browser — no data is uploaded anywhere.</p>
+        <p>The methodological base is B. E. Starichenko, <em>Processing and Presenting
+        Data from Pedagogical Research with a Computer</em> (Ural State Pedagogical
+        University, 2004), extended with effect sizes and exact small-sample tests.</p>
+      </div>
+      <div>
+        <h4>Methods</h4>
+        <ul>
+        <li><a href="../methods/descriptives.html">Descriptive statistics</a></li>
+        <li><a href="../methods/sign-test.html">Sign test</a></li>
+        <li><a href="../methods/wilcoxon.html">Wilcoxon signed-rank</a></li>
+        <li><a href="../methods/paired-t.html">Paired t-test</a></li>
+        <li><a href="../methods/mann-whitney.html">Mann–Whitney U</a></li>
+        <li><a href="../methods/independent-t.html">Independent t-test</a></li>
+        <li><a href="../methods/fisher-phi.html">Fisher's φ*</a></li>
+        <li><a href="../methods/chi-square.html">Chi-square</a></li>
+        <li><a href="../methods/hake-gain.html">Normalized gain</a></li>
+        <li><a href="../methods/effect-size.html">Effect sizes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Guides</h4>
+        <ul>
+        <li><a href="../guides/study-design.html">Study design &amp; measurements</a></li>
+        <li><a href="../guides/sample-size.html">Sample size &amp; power</a></li>
+        <li><a href="../guides/small-samples.html">Working with 5–7 students</a></li>
+        <li><a href="../guides/checklist.html">Pre-launch checklist</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Pedagogical Statistics Toolkit · open source, MIT licensed</span>
+      <span>Results are a computational aid, not a substitute for methodological judgement.</span>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/stats.js"></script>
+<script src="../assets/js/ui.js"></script>
+<script src="../assets/js/pages/fisher-phi.js"></script>
+</body>
+</html>

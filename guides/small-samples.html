@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Working with 5–7 students · Pedagogical Statistics Toolkit</title>
+<meta name="description" content="Which statistical methods still work with five to seven students, which do not, and how to strengthen the evidence without recruiting more participants.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232e5c8a'/%3E%3Cg stroke='%23fff' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M7 24h18'/%3E%3Cpath d='M10 24v-7'/%3E%3Cpath d='M16 24V9'/%3E%3Cpath d='M22 24v-11'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 20V11"/><path d="M11 20V5"/><path d="M16 20v-6"/><path d="M21 20V8"/></svg></span>
+      <span class="brand-text">
+        <span class="brand-name">Pedagogical Statistics</span>
+        <span class="brand-sub">Toolkit</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mainnav" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="mainnav">
+      <a href="../index.html">Method finder</a>
+      <a href="../guides/study-design.html">Study design</a>
+      <a href="../guides/sample-size.html">Sample size</a>
+      <a href="../guides/small-samples.html" aria-current="page">Small samples</a>
+      <a href="../guides/checklist.html">Checklist</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch theme"></button>
+  </div>
+</header>
+<main id="main">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Method finder</a><span class="sep">›</span><span>Working with 5–7 students</span></nav>
+    <span class="eyebrow">Guide · Micro-cohorts</span>
+    <h1>Working with 5–7 students</h1>
+    <p class="lede">At this size most statistical methods are formally inapplicable — but
+    the study is still possible. What changes is the set of instruments and, above all, the
+    wording of the conclusions.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="section">
+    <div class="callout">
+      <span class="callout-title">The principle</span>
+      With five students you cannot buy statistical power, so buy observations instead:
+      more measurement points per student, a finer unit of analysis, several cohorts pooled,
+      and a qualitative strand that carries the argument the numbers cannot.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>A. What still works at n = 5–7</h2>
+    <div class="table-scroll">
+      <table class="data">
+        <thead><tr><th>Method</th><th>Minimum conditions</th><th>What it gives you</th></tr></thead>
+        <tbody>
+            <tr>
+              <th><a href="../methods/wilcoxon.html">Wilcoxon signed-rank test</a></th>
+              <td>n ≥ 6 two-sided (5 one-sided); significance is attainable only if every student moves in the same direction</td><td>The primary test for a pre/post design on a micro-cohort</td>
+            </tr>
+            <tr>
+              <th><a href="../methods/sign-test.html">Sign test</a></th>
+              <td>n ≥ 6 two-sided (5 one-sided); zero changes are excluded</td><td>The simplest check of a shift when magnitude cannot be measured</td>
+            </tr>
+            <tr>
+              <th><a href="../methods/chi-square.html">Fisher's exact test (2 × 2)</a></th>
+              <td>4 students per group</td><td>Comparison of proportions at small counts — the replacement for chi-square</td>
+            </tr>
+            <tr>
+              <th><a href="../methods/fisher-phi.html">Fisher's φ* criterion</a></th>
+              <td>n₁ = 4 with n₂ ≥ 5, or both ≥ 5</td><td>Comparison of two percentages with an exact admissibility rule</td>
+            </tr>
+            <tr>
+              <th><a href="../methods/mann-whitney.html">Mann–Whitney U test</a></th>
+              <td>n₁ = 3 with n₂ ≥ 5, or 4 and 4</td><td>Comparison of two micro-groups when a control group does exist</td>
+            </tr>
+            <tr>
+              <th><a href="../methods/hake-gain.html">Normalized gain ⟨g⟩</a></th>
+              <td>any n</td><td>A measure of course effectiveness that does not depend on sample size</td>
+            </tr>
+            <tr>
+              <th><a href="../methods/descriptives.html">Descriptive statistics with confidence intervals</a></th>
+              <td>n ≥ 3</td><td>An honest description of the result, showing the degree of uncertainty</td>
+            </tr>
+            <tr>
+              <th><a href="../methods/effect-size.html">Effect sizes (Hedges' g) with confidence intervals</a></th>
+              <td>n ≥ 3</td><td>The magnitude of change — the main quantitative argument at this sample size</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>B. What does not work, and why</h2>
+    <div class="table-scroll">
+      <table class="data">
+        <thead><tr><th>Method</th><th>Why it fails at this size</th></tr></thead>
+        <tbody>
+            <tr><th>Pearson's chi-square</th><td>Requires expected counts of at least 5 in every cell; with 5–7 students that condition always fails. The statistic can still be computed, and it will still be wrong.</td></tr>
+            <tr><th>Independent-samples t-test</th><td>Normality cannot be checked at this size and power is close to zero: it can only detect effects of about d ≥ 1.5.</td></tr>
+            <tr><th>Analysis of variance</th><td>Needs at least 15 students per group; below that the variance estimates are unstable.</td></tr>
+            <tr><th>Pearson correlation</th><td>At n &lt; 20 a single atypical student changes the coefficient completely.</td></tr>
+            <tr><th>Kolmogorov–Smirnov λ criterion</th><td>Requires at least 50 students per group.</td></tr>
+            <tr><th>Any normality test</th><td>Below n = 8 these tests reject nothing. The absence of a detected departure is not evidence of normality.</td></tr>
+            <tr><th>Regression analysis</th><td>The number of observations is comparable to the number of model parameters, so the model describes noise.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>C. How to strengthen the evidence without recruiting anyone</h2>
+    <div class="table-scroll">
+      <table class="data">
+        <thead><tr><th>Technique</th><th>What it involves</th><th>What it gains you</th></tr></thead>
+        <tbody>
+            <tr><th>Add measurement points, not students</th><td>Run four to six assessments instead of two and analyse each student's trajectory.</td><td>Five students × six measurements = thirty observations instead of ten, and the direction of the trend becomes testable.</td></tr>
+            <tr><th>Change the unit of analysis</th><td>Analyse tasks, operations or error types rather than students: the share of correctly performed operations of each type, before and after.</td><td>Five students × twenty tasks = one hundred observations. The choice of unit must be argued explicitly in the text.</td></tr>
+            <tr><th>Single-case design with a baseline</th><td>Take several measurements before the intervention begins (a baseline), then during and after it. AB, ABA and multiple-baseline schemes.</td><td>An accepted method of demonstration on small groups in education and special education. Each student acts as their own control.</td></tr>
+            <tr><th>Accumulate the sample across cohorts</th><td>Pool data from successive runs of the course, provided the methodology and the instruments did not change; treat cohort as a factor.</td><td>After three or four runs the sample reaches a size that supports conventional statistics.</td></tr>
+            <tr><th>Mixed design: quantitative plus qualitative</th><td>Semi-structured interviews, analysis of student work products, reflective essays, per-student case studies, observation.</td><td>For micro-cohorts the qualitative strand becomes the primary evidence and the quantitative strand becomes illustrative.</td></tr>
+            <tr><th>Compare against historical data</th><td>Use the results of earlier cohorts taught by the conventional method as a quasi-control group.</td><td>A substitute for a control group; requires an explicit caveat about non-equivalence across time.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>D. How to word the conclusions</h2>
+    <div class="table-scroll">
+      <table class="data">
+        <thead><tr><th style="width:38%">Do not write this</th><th>Write this instead</th></tr></thead>
+        <tbody>
+            <tr>
+              <td style="background:var(--danger-bg)">The effectiveness of the methodology has been proven.</td>
+              <td style="background:var(--ok-bg)">Preliminary evidence indicates a positive effect of the methodology; confirmation requires a study on a larger sample.</td>
+            </tr>
+            <tr>
+              <td style="background:var(--danger-bg)">The level of competence rose by 40%.</td>
+              <td style="background:var(--ok-bg)">The mean score rose from 12.4 to 17.6 (normalized gain g = 0.52; Hedges' g = 1.1, 95% CI [0.2, 2.0]); with n = 6 the change is significant by the Wilcoxon test (T = 0, p = 0.031).</td>
+            </tr>
+            <tr>
+              <td style="background:var(--danger-bg)">No difference was found between the groups, so the methods are equivalent.</td>
+              <td style="background:var(--ok-bg)">The difference did not reach significance at this sample size (n = 7); the study has power to detect only effects larger than about d = 1.3.</td>
+            </tr>
+            <tr>
+              <td style="background:var(--danger-bg)">The results confirm the hypothesis.</td>
+              <td style="background:var(--ok-bg)">The results are consistent with the hypothesis; the small sample and the absence of a control group are limitations of this study.</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small muted">A conclusion that overstates what a sample of six can support is
+    the fastest way to lose an examiner's confidence in everything else in the work.</p>
+  </section>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>About this toolkit</h4>
+        <p>A set of calculators for the statistical methods most often needed when a
+        master's student has to demonstrate that a newly designed course actually works.
+        Every calculation runs in your browser — no data is uploaded anywhere.</p>
+        <p>The methodological base is B. E. Starichenko, <em>Processing and Presenting
+        Data from Pedagogical Research with a Computer</em> (Ural State Pedagogical
+        University, 2004), extended with effect sizes and exact small-sample tests.</p>
+      </div>
+      <div>
+        <h4>Methods</h4>
+        <ul>
+        <li><a href="../methods/descriptives.html">Descriptive statistics</a></li>
+        <li><a href="../methods/sign-test.html">Sign test</a></li>
+        <li><a href="../methods/wilcoxon.html">Wilcoxon signed-rank</a></li>
+        <li><a href="../methods/paired-t.html">Paired t-test</a></li>
+        <li><a href="../methods/mann-whitney.html">Mann–Whitney U</a></li>
+        <li><a href="../methods/independent-t.html">Independent t-test</a></li>
+        <li><a href="../methods/fisher-phi.html">Fisher's φ*</a></li>
+        <li><a href="../methods/chi-square.html">Chi-square</a></li>
+        <li><a href="../methods/hake-gain.html">Normalized gain</a></li>
+        <li><a href="../methods/effect-size.html">Effect sizes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Guides</h4>
+        <ul>
+        <li><a href="../guides/study-design.html">Study design &amp; measurements</a></li>
+        <li><a href="../guides/sample-size.html">Sample size &amp; power</a></li>
+        <li><a href="../guides/small-samples.html">Working with 5–7 students</a></li>
+        <li><a href="../guides/checklist.html">Pre-launch checklist</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Pedagogical Statistics Toolkit · open source, MIT licensed</span>
+      <span>Results are a computational aid, not a substitute for methodological judgement.</span>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/stats.js"></script>
+<script src="../assets/js/ui.js"></script>
+</body>
+</html>

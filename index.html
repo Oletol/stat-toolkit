@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method finder · Pedagogical Statistics Toolkit</title>
+<meta name="description" content="Choose and run the right statistical criterion to evaluate a newly designed course: ten browser-based calculators plus study design guidance.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232e5c8a'/%3E%3Cg stroke='%23fff' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M7 24h18'/%3E%3Cpath d='M10 24v-7'/%3E%3Cpath d='M16 24V9'/%3E%3Cpath d='M22 24v-11'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 20V11"/><path d="M11 20V5"/><path d="M16 20v-6"/><path d="M21 20V8"/></svg></span>
+      <span class="brand-text">
+        <span class="brand-name">Pedagogical Statistics</span>
+        <span class="brand-sub">Toolkit</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mainnav" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="mainnav">
+      <a href="index.html" aria-current="page">Method finder</a>
+      <a href="guides/study-design.html">Study design</a>
+      <a href="guides/sample-size.html">Sample size</a>
+      <a href="guides/small-samples.html">Small samples</a>
+      <a href="guides/checklist.html">Checklist</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch theme"></button>
+  </div>
+</header>
+<main id="main">
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow" style="color:rgba(255,255,255,.62)">For course designers and their supervisors</span>
+    <h1>Prove your course works — with the right statistical method</h1>
+    <p>Ten calculators for the statistical criteria used to evaluate a newly designed
+    course, together with the design guidance that has to be settled <em>before</em> the
+    first student enrols. Everything runs in your browser; no data leaves your computer.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#finder">Find my method</a>
+      <a class="btn btn-on-dark" href="guides/study-design.html">Plan the study first</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="n">10</div><div class="l">Calculators</div></div>
+      <div class="hero-stat"><div class="n">4</div><div class="l">Design guides</div></div>
+      <div class="hero-stat"><div class="n">n ≥ 5</div><div class="l">Works with tiny cohorts</div></div>
+      <div class="hero-stat"><div class="n">0</div><div class="l">Data sent anywhere</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="section" id="finder">
+    <h2 style="margin-top:2rem">Method finder</h2>
+    <p class="lede" style="max-width:70ch">Choose a method by the constraints of your study
+    rather than by name. Most authored courses run with one group and no control, and with
+    fewer than twenty students — the filters below make the consequences of that visible
+    straight away.</p>
+    
+        <div class="callout">
+          <span class="callout-title">How to use this page</span>
+          Tick the constraints of your study on the left. The list narrows to the methods
+          that are actually admissible for that combination — including the lower limits on
+          group size, which are what usually rules a method out. Nothing is hidden behind a
+          wizard: every method stays one click away.
+        </div>
+
+    <div class="finder" style="margin-top:26px">
+      <form class="filter-panel" id="filterPanel" onsubmit="return false">
+        <h2>Filters</h2>
+        <p class="small muted" style="margin:0">Leave everything unticked to see all methods.</p>
+        <button class="btn btn-ghost btn-sm" type="button" id="resetFilters"
+                style="width:100%;margin-top:14px" hidden>Clear all filters</button>
+      </form>
+      <div>
+        <div class="result-count" id="resultCount"></div>
+        <div class="method-list" id="methodList"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Settle these before you launch</h2>
+    <div class="grid-3" style="margin-top:20px">
+      <a class="method-card" href="guides/study-design.html">
+        <h3>Study design &amp; measurements</h3>
+        <p>How many measurement points a defensible claim needs, what one, two, three or
+        four measurements each let you conclude, and how to use the course's own assessments
+        as measurement points.</p>
+        <div class="meta"><span class="tag is-design">Read first</span></div>
+      </a>
+      <a class="method-card" href="guides/sample-size.html">
+        <h3>Sample size &amp; power</h3>
+        <p>How many students you need to detect an effect of a given size, with an
+        interactive calculator and the reality check for when that number is out of reach.</p>
+        <div class="meta"><span class="tag is-n">Interactive</span></div>
+      </a>
+      <a class="method-card" href="guides/small-samples.html">
+        <h3>Working with 5–7 students</h3>
+        <p>Which tests still function at that size, which cannot, six ways to strengthen the
+        evidence without recruiting anyone, and the wording that keeps your conclusions
+        defensible.</p>
+        <div class="meta"><span class="tag is-scale">Micro-cohorts</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Three rules that decide whether the analysis stands</h2>
+    <div class="grid-3" style="margin-top:18px">
+      <div class="card">
+        <h3 style="margin-top:0">Percentages are not data</h3>
+        <p class="small">Statistical tests run on counts of students. Percentages are for the
+        write-up. To compare two percentages properly, use
+        <a href="methods/fisher-phi.html">Fisher's φ* criterion</a>, which was designed for
+        exactly that job.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">The method is chosen first</h3>
+        <p class="small">Fix the criterion, the significance level and the hypothesis
+        direction in your research programme before any data arrive. Selecting the test that
+        gives the smallest p-value afterwards is detectable, and reviewers do detect it.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Significance is not size</h3>
+        <p class="small">Always report an <a href="methods/effect-size.html">effect size</a>
+        with a confidence interval. A non-significant result at n = 6 is a statement about
+        your power, not about your course.</p>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>About this toolkit</h4>
+        <p>A set of calculators for the statistical methods most often needed when a
+        master's student has to demonstrate that a newly designed course actually works.
+        Every calculation runs in your browser — no data is uploaded anywhere.</p>
+        <p>The methodological base is B. E. Starichenko, <em>Processing and Presenting
+        Data from Pedagogical Research with a Computer</em> (Ural State Pedagogical
+        University, 2004), extended with effect sizes and exact small-sample tests.</p>
+      </div>
+      <div>
+        <h4>Methods</h4>
+        <ul>
+        <li><a href="methods/descriptives.html">Descriptive statistics</a></li>
+        <li><a href="methods/sign-test.html">Sign test</a></li>
+        <li><a href="methods/wilcoxon.html">Wilcoxon signed-rank</a></li>
+        <li><a href="methods/paired-t.html">Paired t-test</a></li>
+        <li><a href="methods/mann-whitney.html">Mann–Whitney U</a></li>
+        <li><a href="methods/independent-t.html">Independent t-test</a></li>
+        <li><a href="methods/fisher-phi.html">Fisher's φ*</a></li>
+        <li><a href="methods/chi-square.html">Chi-square</a></li>
+        <li><a href="methods/hake-gain.html">Normalized gain</a></li>
+        <li><a href="methods/effect-size.html">Effect sizes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Guides</h4>
+        <ul>
+        <li><a href="guides/study-design.html">Study design &amp; measurements</a></li>
+        <li><a href="guides/sample-size.html">Sample size &amp; power</a></li>
+        <li><a href="guides/small-samples.html">Working with 5–7 students</a></li>
+        <li><a href="guides/checklist.html">Pre-launch checklist</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Pedagogical Statistics Toolkit · open source, MIT licensed</span>
+      <span>Results are a computational aid, not a substitute for methodological judgement.</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/stats.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/catalog.js"></script>
+<script src="assets/js/finder.js"></script>
+</body>
+</html>

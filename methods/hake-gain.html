@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hake Normalized Gain · Pedagogical Statistics Toolkit</title>
+<meta name="description" content="Normalized gain <g> for pre-test / post-test course evaluation — an effect measure that does not depend on sample size.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232e5c8a'/%3E%3Cg stroke='%23fff' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M7 24h18'/%3E%3Cpath d='M10 24v-7'/%3E%3Cpath d='M16 24V9'/%3E%3Cpath d='M22 24v-11'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 20V11"/><path d="M11 20V5"/><path d="M16 20v-6"/><path d="M21 20V8"/></svg></span>
+      <span class="brand-text">
+        <span class="brand-name">Pedagogical Statistics</span>
+        <span class="brand-sub">Toolkit</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mainnav" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="mainnav">
+      <a href="../index.html" aria-current="page">Method finder</a>
+      <a href="../guides/study-design.html">Study design</a>
+      <a href="../guides/sample-size.html">Sample size</a>
+      <a href="../guides/small-samples.html">Small samples</a>
+      <a href="../guides/checklist.html">Checklist</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch theme"></button>
+  </div>
+</header>
+<main id="main">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Method finder</a><span class="sep">›</span><span>Hake Normalized Gain</span></nav>
+    <span class="eyebrow">Effect measure · Pre / post, one group</span>
+    <h1>Hake Normalized Gain</h1>
+    <p class="lede">Measures how much of the room for improvement the course actually captured. Because it is a descriptive measure rather than a significance test, it stays meaningful with five students.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="method-layout" style="margin-top:30px">
+    <div>
+      <section class="card">
+        <div class="card-head"><h2 style="margin:0">What this test does</h2></div>
+        
+        <p>A raw gain of ten points means something quite different for a student who
+        started at 20% than for one who started at 85% — the second had only fifteen points
+        of room left. The normalized gain corrects for this: it divides the improvement
+        actually achieved by the improvement that was available.</p>
+        <div class="formula">g = (post-test % − pre-test %) ÷ (100% − pre-test %)</div>
+        <p>A value of 0.5 means the course closed half the gap between where students
+        started and a perfect score. The conventional bands, established by Richard Hake
+        across thousands of physics students, are: <b>low</b> below 0.3, <b>medium</b>
+        between 0.3 and 0.7, and <b>high</b> above 0.7. Those bands make results comparable
+        across courses with different entry levels, and across your own successive cohorts.</p>
+        <p>The measure carries no p-value and makes no claim of statistical significance —
+        which is precisely why it is valuable when your group is too small for a test to
+        have any power. Report it alongside the Wilcoxon signed-rank test, not instead of
+        it, and quote both the class-average gain (computed from the group means) and the
+        average of the individual gains, since the two can differ noticeably when the group
+        is heterogeneous.</p>
+    
+      </section>
+
+      <section class="card" style="margin-top:22px">
+        <div class="card-head">
+          <h2 style="margin:0">Your data</h2>
+          <span class="small muted">Computed in your browser — nothing is uploaded</span>
+        </div>
+        
+        <div class="data-grid">
+          <div class="field">
+            <label for="pre">Pre-test scores</label>
+            <textarea id="pre" spellcheck="false" placeholder="12&#10;15&#10;11&#10;18&#10;14"></textarea>
+            <div class="hint">Raw scores, in the same order as the post-test column.</div>
+            <span class="count-pill" id="preCount">0 values</span>
+          </div>
+          <div class="field">
+            <label for="post">Post-test scores</label>
+            <textarea id="post" spellcheck="false" placeholder="16&#10;18&#10;15&#10;21&#10;17"></textarea>
+            <div class="hint">Raw scores on the same scale as the pre-test.</div>
+            <span class="count-pill" id="postCount">0 values</span>
+          </div>
+        </div>
+        <p class="paste-note"><b>Pasting from a spreadsheet works.</b> Copy a column in Excel, Google&nbsp;Sheets or a CSV file and paste it straight in — line breaks, commas, semicolons, tabs and spaces are all accepted as separators, and a comma decimal mark (<code>7,5</code>) is read as <code>7.5</code>.</p>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="maxScore">Maximum possible score</label>
+            <input type="number" id="maxScore" min="1" step="any" value="100">
+            <div class="hint">Use 100 if you entered percentages.</div>
+          </div>
+        </div>
+        
+        <div class="data-toolbar">
+          <button class="btn btn-primary" type="button" id="calcBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            Compute the normalized gain
+          </button>
+          <button class="btn btn-secondary" type="button" id="exampleBtn">Load example data</button>
+          <button class="btn btn-ghost" type="button" id="clearBtn">Clear</button>
+        </div>
+
+      </section>
+
+      <section class="results" id="results" hidden>
+        <div class="card">
+          <div class="card-head">
+            <h2>Results</h2>
+            <div class="btn-row">
+              <button class="btn btn-ghost btn-sm" type="button" id="copyBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                Copy
+              </button>
+              <button class="btn btn-ghost btn-sm" type="button" id="saveBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 20h16"/></svg>
+                Save .txt
+              </button>
+            </div>
+          </div>
+          <div id="verdict"></div>
+          <div id="statGrid"></div>
+          <div class="warnings" id="warnBox"></div>
+          <div id="chartBox"></div>
+          <div id="detailBox"></div>
+          <div class="interpretation" id="interpBox"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        
+        <h2>Reading the two averages</h2>
+        <p>The <b>class-average gain</b> is computed from the group's mean pre-test and mean
+        post-test scores; it is the figure Hake used and the one to quote when comparing
+        against published results. The <b>average individual gain</b> is the mean of each
+        student's own g; it gives equal weight to every student and is the more informative
+        of the two when your group is small and varied. Report both, and note when they
+        diverge.</p>
+        <h2>The ceiling problem</h2>
+        <p>A student who already scored the maximum on the pre-test has no room to gain, and
+        their normalized gain is undefined. Such students are excluded from the individual
+        average and counted separately in the output. If several students hit the ceiling on
+        the pre-test, your instrument was too easy to measure the effect of the course.</p>
+    
+      </section>
+
+      <section class="section"><h2>Related methods</h2><div class="grid-3" style="margin-top:18px">
+      <a class="method-card" href="wilcoxon.html">
+        <h3>Wilcoxon Signed-Rank Test (T)</h3>
+        <p>The default test for a pre-test / post-test design without a control group. It uses both the direction and the size of each student's change, and assu…</p>
+      </a>
+      <a class="method-card" href="paired-t.html">
+        <h3>Paired-Samples t-Test</h3>
+        <p>Compares mean pre-test and post-test scores for the same students. More powerful than a rank test when the differences are approximately normal — whic…</p>
+      </a>
+      <a class="method-card" href="effect-size.html">
+        <h3>Effect Size Calculator</h3>
+        <p>Every significance test must be reported with an effect size. This calculator produces the right one for your design, with a 95% confidence interval a…</p>
+      </a>
+</div></section>
+    </div>
+
+      <aside>
+        <div class="spec-box">
+          <h3>At a glance</h3>
+          <dl class="spec-list">
+          <div><dt>Measurement scale</dt><dd>Interval, expressed on a bounded scale with a known maximum</dd></div>
+          <div><dt>Study design</dt><dd>Two measurements of the same students</dd></div>
+          <div><dt>Measurements needed</dt><dd>2 (pre-test and post-test)</dd></div>
+          <div><dt>Minimum n</dt><dd>1 — it is a descriptive measure</dd></div>
+          <div><dt>Recommended n</dt><dd>≥ 5 for a stable class average</dd></div>
+          <div><dt>Interpretation</dt><dd>g &lt; 0.3 low · 0.3–0.7 medium · &gt; 0.7 high</dd></div>
+          <div><dt>Caveat</dt><dd>Students already at the maximum cannot be scored and are excluded</dd></div>
+          <div><dt>Source</dt><dd>R. R. Hake, <em>Am. J. Phys.</em> 66 (1998) 64–74</dd></div>
+          </dl>
+        </div>
+      </aside>
+
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>About this toolkit</h4>
+        <p>A set of calculators for the statistical methods most often needed when a
+        master's student has to demonstrate that a newly designed course actually works.
+        Every calculation runs in your browser — no data is uploaded anywhere.</p>
+        <p>The methodological base is B. E. Starichenko, <em>Processing and Presenting
+        Data from Pedagogical Research with a Computer</em> (Ural State Pedagogical
+        University, 2004), extended with effect sizes and exact small-sample tests.</p>
+      </div>
+      <div>
+        <h4>Methods</h4>
+        <ul>
+        <li><a href="../methods/descriptives.html">Descriptive statistics</a></li>
+        <li><a href="../methods/sign-test.html">Sign test</a></li>
+        <li><a href="../methods/wilcoxon.html">Wilcoxon signed-rank</a></li>
+        <li><a href="../methods/paired-t.html">Paired t-test</a></li>
+        <li><a href="../methods/mann-whitney.html">Mann–Whitney U</a></li>
+        <li><a href="../methods/independent-t.html">Independent t-test</a></li>
+        <li><a href="../methods/fisher-phi.html">Fisher's φ*</a></li>
+        <li><a href="../methods/chi-square.html">Chi-square</a></li>
+        <li><a href="../methods/hake-gain.html">Normalized gain</a></li>
+        <li><a href="../methods/effect-size.html">Effect sizes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Guides</h4>
+        <ul>
+        <li><a href="../guides/study-design.html">Study design &amp; measurements</a></li>
+        <li><a href="../guides/sample-size.html">Sample size &amp; power</a></li>
+        <li><a href="../guides/small-samples.html">Working with 5–7 students</a></li>
+        <li><a href="../guides/checklist.html">Pre-launch checklist</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Pedagogical Statistics Toolkit · open source, MIT licensed</span>
+      <span>Results are a computational aid, not a substitute for methodological judgement.</span>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/stats.js"></script>
+<script src="../assets/js/ui.js"></script>
+<script src="../assets/js/pages/hake-gain.js"></script>
+</body>
+</html>

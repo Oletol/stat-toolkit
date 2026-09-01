@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign Test (G) · Pedagogical Statistics Toolkit</title>
+<meta name="description" content="Exact sign test for pre-test / post-test data: does the score shift in one direction? Works from five students upwards.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232e5c8a'/%3E%3Cg stroke='%23fff' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M7 24h18'/%3E%3Cpath d='M10 24v-7'/%3E%3Cpath d='M16 24V9'/%3E%3Cpath d='M22 24v-11'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 20V11"/><path d="M11 20V5"/><path d="M16 20v-6"/><path d="M21 20V8"/></svg></span>
+      <span class="brand-text">
+        <span class="brand-name">Pedagogical Statistics</span>
+        <span class="brand-sub">Toolkit</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mainnav" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="mainnav">
+      <a href="../index.html" aria-current="page">Method finder</a>
+      <a href="../guides/study-design.html">Study design</a>
+      <a href="../guides/sample-size.html">Sample size</a>
+      <a href="../guides/small-samples.html">Small samples</a>
+      <a href="../guides/checklist.html">Checklist</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch theme"></button>
+  </div>
+</header>
+<main id="main">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Method finder</a><span class="sep">›</span><span>Sign Test (G)</span></nav>
+    <span class="eyebrow">Non-parametric · Pre / post, one group</span>
+    <h1>Sign Test (G)</h1>
+    <p class="lede">The simplest defensible test of a pre-test to post-test shift. It counts only the direction of each student's change, which makes it valid for ordinal data and usable with as few as five students.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="method-layout" style="margin-top:30px">
+    <div>
+      <section class="card">
+        <div class="card-head"><h2 style="margin:0">What this test does</h2></div>
+        
+        <p>The sign test asks one question: did more students move up than would be
+        expected if the course had no effect at all? Under the null hypothesis each
+        student is equally likely to improve or decline, so the number of improvements
+        follows a binomial distribution with p = 0.5. This page computes the exact
+        binomial probability — no approximation, no table lookup — which is what makes
+        the test trustworthy at very small sample sizes.</p>
+        <p>Because only the sign of each difference is used, the magnitude is discarded.
+        A student who gains one point counts exactly as much as one who gains twenty.
+        That is the test's strength when your outcome is ordinal (a competence level moved
+        from "medium" to "high") and its weakness when your outcome is a numeric score:
+        in that case the <a href="wilcoxon.html">Wilcoxon signed-rank test</a> uses the
+        same data more efficiently and should be preferred.</p>
+        <p>Students whose score did not change contribute nothing and are removed from the
+        analysis, which reduces the effective sample size. With six usable pairs, a
+        significant two-sided result requires <em>every</em> student to move in the same
+        direction; with five, only a one-sided hypothesis stated in advance can reach
+        significance.</p>
+    
+      </section>
+
+      <section class="card" style="margin-top:22px">
+        <div class="card-head">
+          <h2 style="margin:0">Your data</h2>
+          <span class="small muted">Computed in your browser — nothing is uploaded</span>
+        </div>
+        
+        <div class="data-grid">
+          <div class="field">
+            <label for="pre">Pre-test scores</label>
+            <textarea id="pre" spellcheck="false" placeholder="12&#10;15&#10;11&#10;18&#10;14"></textarea>
+            <div class="hint">One value per student, in the same order as the post-test column.</div>
+            <span class="count-pill" id="preCount">0 values</span>
+          </div>
+          <div class="field">
+            <label for="post">Post-test scores</label>
+            <textarea id="post" spellcheck="false" placeholder="16&#10;18&#10;15&#10;21&#10;17"></textarea>
+            <div class="hint">One value per student, in the same order as the pre-test column.</div>
+            <span class="count-pill" id="postCount">0 values</span>
+          </div>
+        </div>
+        <p class="paste-note"><b>Pasting from a spreadsheet works.</b> Copy a column in Excel, Google&nbsp;Sheets or a CSV file and paste it straight in — line breaks, commas, semicolons, tabs and spaces are all accepted as separators, and a comma decimal mark (<code>7,5</code>) is read as <code>7.5</code>.</p>
+<div class="field-row">
+          <div class="field">
+            <label for="alpha">Significance level α</label>
+            <select id="alpha">
+              <option value="0.05" selected>0.05 — the usual choice</option>
+              <option value="0.01">0.01 — stricter</option>
+              <option value="0.1">0.10 — exploratory work only</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="alternative">Hypothesis</label>
+            <select id="alternative">
+              <option value="two-sided" selected>Two-sided — any change counts</option>
+              <option value="greater">One-sided — scores should rise</option>
+              <option value="less">One-sided — scores should fall</option>
+            </select>
+          </div></div>
+        <div class="data-toolbar">
+          <button class="btn btn-primary" type="button" id="calcBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            Run the sign test
+          </button>
+          <button class="btn btn-secondary" type="button" id="exampleBtn">Load example data</button>
+          <button class="btn btn-ghost" type="button" id="clearBtn">Clear</button>
+        </div>
+
+      </section>
+
+      <section class="results" id="results" hidden>
+        <div class="card">
+          <div class="card-head">
+            <h2>Results</h2>
+            <div class="btn-row">
+              <button class="btn btn-ghost btn-sm" type="button" id="copyBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                Copy
+              </button>
+              <button class="btn btn-ghost btn-sm" type="button" id="saveBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 20h16"/></svg>
+                Save .txt
+              </button>
+            </div>
+          </div>
+          <div id="verdict"></div>
+          <div id="statGrid"></div>
+          <div class="warnings" id="warnBox"></div>
+          <div id="chartBox"></div>
+          <div id="detailBox"></div>
+          <div class="interpretation" id="interpBox"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        
+        <h2>When to choose this test</h2>
+        <ul>
+          <li>Your outcome is a level or a rank rather than a number.</li>
+          <li>You can tell whether each student improved, but not by how much.</li>
+          <li>The group is very small and you want an exact, assumption-free result.</li>
+        </ul>
+        <h2>What it cannot tell you</h2>
+        <p>Because there is no control group in this design, a significant result shows
+        that scores rose — not that <em>your methodology</em> made them rise. Maturation,
+        parallel coursework, motivation and the test–retest effect are all still on the
+        table. Say so explicitly in your write-up, and strengthen the claim with a
+        delayed post-test, a comparison against previous cohorts, or qualitative evidence.</p>
+    
+      </section>
+
+      <section class="section"><h2>Related methods</h2><div class="grid-3" style="margin-top:18px">
+      <a class="method-card" href="wilcoxon.html">
+        <h3>Wilcoxon Signed-Rank Test (T)</h3>
+        <p>The default test for a pre-test / post-test design without a control group. It uses both the direction and the size of each student's change, and assu…</p>
+      </a>
+      <a class="method-card" href="hake-gain.html">
+        <h3>Hake Normalized Gain</h3>
+        <p>Measures how much of the room for improvement the course actually captured. Because it is a descriptive measure rather than a significance test, it st…</p>
+      </a>
+      <a class="method-card" href="descriptives.html">
+        <h3>Descriptive Statistics &amp; Normality Screening</h3>
+        <p>Every report opens with descriptive statistics. This page also runs the skewness–kurtosis screening that decides whether a parametric test is admissib…</p>
+      </a>
+</div></section>
+    </div>
+
+      <aside>
+        <div class="spec-box">
+          <h3>At a glance</h3>
+          <dl class="spec-list">
+          <div><dt>Measurement scale</dt><dd>Ordinal or interval</dd></div>
+          <div><dt>Study design</dt><dd>Two measurements of the same students — no control group needed</dd></div>
+          <div><dt>Measurements needed</dt><dd>2 (pre-test and post-test)</dd></div>
+          <div><dt>Minimum n</dt><dd>5 for a one-sided hypothesis, 6 for a two-sided one</dd></div>
+          <div><dt>Recommended n</dt><dd>≥ 10</dd></div>
+          <div><dt>Assumptions</dt><dd>Pairs are independent of one another; that is all</dd></div>
+          <div><dt>Test statistic</dt><dd>G — the count of the rarer sign; exact binomial p-value</dd></div>
+          <div><dt>Source</dt><dd>Starichenko §2.2.2 (p. 46), Table 3 (p. 200)</dd></div>
+          </dl>
+        </div>
+      </aside>
+
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>About this toolkit</h4>
+        <p>A set of calculators for the statistical methods most often needed when a
+        master's student has to demonstrate that a newly designed course actually works.
+        Every calculation runs in your browser — no data is uploaded anywhere.</p>
+        <p>The methodological base is B. E. Starichenko, <em>Processing and Presenting
+        Data from Pedagogical Research with a Computer</em> (Ural State Pedagogical
+        University, 2004), extended with effect sizes and exact small-sample tests.</p>
+      </div>
+      <div>
+        <h4>Methods</h4>
+        <ul>
+        <li><a href="../methods/descriptives.html">Descriptive statistics</a></li>
+        <li><a href="../methods/sign-test.html">Sign test</a></li>
+        <li><a href="../methods/wilcoxon.html">Wilcoxon signed-rank</a></li>
+        <li><a href="../methods/paired-t.html">Paired t-test</a></li>
+        <li><a href="../methods/mann-whitney.html">Mann–Whitney U</a></li>
+        <li><a href="../methods/independent-t.html">Independent t-test</a></li>
+        <li><a href="../methods/fisher-phi.html">Fisher's φ*</a></li>
+        <li><a href="../methods/chi-square.html">Chi-square</a></li>
+        <li><a href="../methods/hake-gain.html">Normalized gain</a></li>
+        <li><a href="../methods/effect-size.html">Effect sizes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Guides</h4>
+        <ul>
+        <li><a href="../guides/study-design.html">Study design &amp; measurements</a></li>
+        <li><a href="../guides/sample-size.html">Sample size &amp; power</a></li>
+        <li><a href="../guides/small-samples.html">Working with 5–7 students</a></li>
+        <li><a href="../guides/checklist.html">Pre-launch checklist</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Pedagogical Statistics Toolkit · open source, MIT licensed</span>
+      <span>Results are a computational aid, not a substitute for methodological judgement.</span>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/stats.js"></script>
+<script src="../assets/js/ui.js"></script>
+<script src="../assets/js/pages/sign-test.js"></script>
+</body>
+</html>
